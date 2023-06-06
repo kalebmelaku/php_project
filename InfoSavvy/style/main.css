@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Playfair Display", serif;
+}
+* a {
+  text-decoration: none;
+  color: #000 !important;
+}
+
+ul li a.login {
+  background-color: #293b97 !important;
+  color: #fff !important;
+}
+
+ul li .nav-link {
+  color: #000;
+  margin-left: 0.5rem;
+  position: relative;
+}
+ul li .nav-link:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #293b97;
+  transition: all 300ms;
+}
+ul li .nav-link:hover:before {
+  width: 100%;
+}
+
+.current {
+  position: relative;
+}
+.current:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100% !important;
+  height: 2px;
+  background-color: #293b97;
+}
+
+section.hero .container-sm {
+  overflow-x: hidden;
+}
+section.hero h1 {
+  font-size: clamp(1.5rem, 15vw, 5.5rem);
+}
+section.hero h1 span {
+  color: #293b97;
+}
+section.hero p {
+  font-size: clamp(0.5rem, 15vw, 2rem);
+}
+section.hero a {
+  background-color: #293b97;
+  color: #fff !important;
+  font-size: clamp(0.5rem, 15vw, 1.2rem);
+}
+section.hero a:hover {
+  background-color: #f36c21;
+  color: #fff;
+}
+section.trending .title h3 {
+  color: #000 !important;
+}
+section.trending .row > * {
+  padding: 0 !important;
+}
+section.trending .post {
+  width: 18rem;
+  background-color: #fff;
+  margin: 1rem;
+}
+section.trending .post .card {
+  width: 100% !important;
+  gap: 1rem;
+  border: none;
+}
+section.trending .post .card:hover img {
+  transform: scale(1.1);
+}
+section.trending .post .img-container {
+  width: 100%;
+  overflow: hidden;
+}
+section.trending .post .img-container img {
+  width: 100%;
+  transition: all 300ms;
+}
+section.interest .badge {
+  background-color: #293b97;
+  transform: all 300ms;
+}
+section.interest .badge a {
+  color: #fff !important;
+}
+section.interest .badge:hover {
+  background-color: #f36c21 !important;
+}
+
+.modal-body #signup, .modal-body #login {
+  font-weight: bold;
+  color: #293b97;
+  transition: all 300ms;
+  cursor: pointer;
+}
+.modal-body #signup:hover, .modal-body #login:hover {
+  color: #f36c21;
+}/*# sourceMappingURL=main.css.map */

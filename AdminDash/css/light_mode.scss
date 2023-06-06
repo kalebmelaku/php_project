@@ -1,0 +1,62 @@
+@import 'color_variables';
+.light {
+    .page-content {
+        background-color: $white !important;
+    }
+
+    .card,
+    #sidebar,
+    .navbar {
+        background-color: #fafafa !important;
+        border: none;
+        a {
+            color: #222;
+        }
+    }
+    .navbar{
+        border-bottom: 5px solid $blue !important;
+        border: none !important;
+        box-shadow: 1px 0 5px $blue;
+    }
+
+    .card {
+        border-left: 3px solid $blue;
+        p,h1,h2,h3,h4,h5,h6{
+            color: #222;
+        }
+        form input,
+        form textarea,
+        form select{
+            background-color: #eee;
+            border: $blue;
+            color: #222;
+        }
+        label{
+            color: #222;
+        }
+        table{
+            color: #222;
+        }
+    }
+
+    #sidebar ul li.active {
+        background-color: $blue;
+    }
+
+    .sidebar-item.active>.sidebar-link {
+        background: $white;
+        border-left: 3px solid $orange;
+        color: #adb5bd;
+    }
+
+    .sidebar-item.active>.sidebar-link:hover {
+        background: $white !important;
+    }
+    .sidebar-link:hover {
+        background: $white;
+        // color: inherit;
+        i{
+            color: #222 !important;
+        }
+      }
+}

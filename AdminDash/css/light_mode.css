@@ -1,0 +1,55 @@
+.light .page-content {
+  background-color: #fff !important;
+}
+.light .card,
+.light #sidebar,
+.light .navbar {
+  background-color: #fafafa !important;
+  border: none;
+}
+.light .card a,
+.light #sidebar a,
+.light .navbar a {
+  color: #222;
+}
+.light .navbar {
+  border-bottom: 5px solid #293b97 !important;
+  border: none !important;
+  box-shadow: 1px 0 5px #293b97;
+}
+.light .card {
+  border-left: 3px solid #293b97;
+}
+.light .card p, .light .card h1, .light .card h2, .light .card h3, .light .card h4, .light .card h5, .light .card h6 {
+  color: #222;
+}
+.light .card form input,
+.light .card form textarea,
+.light .card form select {
+  background-color: #eee;
+  border: #293b97;
+  color: #222;
+}
+.light .card label {
+  color: #222;
+}
+.light .card table {
+  color: #222;
+}
+.light #sidebar ul li.active {
+  background-color: #293b97;
+}
+.light .sidebar-item.active > .sidebar-link {
+  background: #fff;
+  border-left: 3px solid #f36c21;
+  color: #adb5bd;
+}
+.light .sidebar-item.active > .sidebar-link:hover {
+  background: #fff !important;
+}
+.light .sidebar-link:hover {
+  background: #fff;
+}
+.light .sidebar-link:hover i {
+  color: #222 !important;
+}/*# sourceMappingURL=light_mode.css.map */

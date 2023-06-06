@@ -1,0 +1,85 @@
+.brand-big strong, .brand-sm strong {
+  color: #293b97;
+}
+.brand-big strong:last-child, .brand-sm strong:last-child {
+  color: #f36c21;
+}
+
+.direction-ltr {
+  direction: ltr;
+}
+
+.direction-rtl {
+  direction: rtl;
+}
+
+.sidebar-item.active > .sidebar-link {
+  background: #32353b;
+  border-left: 2px solid #f36c21;
+  color: #adb5bd;
+}
+
+.sidebar-item.active > .sidebar-link .svg-icon {
+  color: #f36c21;
+}
+
+.sidebar-item.active ul .sidebar-link {
+  border-left: 2px solid #f36c21;
+}
+
+.sidebar-item a:hover svg {
+  color: #fff !important;
+}
+
+.card {
+  border-left: 3px solid #f36c21;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.card .col-md-3 {
+  width: 100%;
+}
+.card form p, .card form h1, .card form h2, .card form h3, .card form h4, .card form h5, .card form label {
+  color: #fff;
+}
+.card form input, .card form textarea, .card form select {
+  color: #ddd;
+  border: 1px solid #555;
+}
+.card form input:focus, .card form textarea:focus, .card form select:focus {
+  border-color: #f36c21;
+}
+.card .btn {
+  background: #293b97;
+  border: none;
+  width: 100%;
+  transition: all 300ms;
+}
+.card .btn:hover {
+  background: #f36c21;
+}
+.card table {
+  color: #fff;
+}
+.card .actions i {
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+.card .actions i.fa-trash {
+  color: #f36c21;
+}
+.card .actions a {
+  all: unset;
+}
+.card img {
+  width: 100%;
+}
+
+.page-content {
+  padding-bottom: 0 !important;
+}
+
+.dark_light_switch img {
+  width: 130%;
+  cursor: pointer;
+}/*# sourceMappingURL=custom.css.map */
