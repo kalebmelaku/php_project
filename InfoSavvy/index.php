@@ -349,7 +349,12 @@
                         <button type="submit" class="btn btn-primary">Login</button>
                         <p class="my-2">Don't you have an account? please <span id="signup">sign up here</span></p>
                     </form>
-                    <form class="signup-form d-none">
+                    <form method="POST" action="../backend/signup.php" class="signup-form d-none">
+                        <?php
+                            @$msg = $_REQUEST['error'];
+                        ?>
+                        <p style="color: red">
+                    <?php echo $msg; ?></p>
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="firstname">First Name</label>
@@ -376,12 +381,12 @@
                                 <input type="password" class="form-control" id="password" name="password" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="confirm-password">Confirm Password</label>
-                                <input type="password" class="form-control" id="confirm-password"
-                                    name="confirm-password" required>
+                                <label for="confirm_password">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirm_password"
+                                    name="confirm_password" required>
                             </div>
                         </div>
-                        <button type="submit" class="my-2 btn btn-primary">Signup</button>
+                        <input type="submit" name="signup" class="my-2 btn btn-primary" value="Sing up" />
                         <p class="my-2">Already have an account? <span id="login">login here</span></p>
                     </form>
                 </div>
