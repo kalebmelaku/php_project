@@ -10,12 +10,13 @@
         $confirm_password = $_POST['confirm_password'];
 
         if($password === $confirm_password){
+            $hashPass = md5($password);
             $sql = "INSERT INTO `users`(`fname`, `lname`, `phone`, `email`, `password`) VALUES (
                 '$firstname',
                 '$lastname',
                 '$phone',
                 '$email',
-                '$password'
+                '$hashPass'
                 )";
             
             $result = mysqli_query($conn, $sql);
