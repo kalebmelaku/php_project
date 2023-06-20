@@ -2,7 +2,7 @@
 require './db.php';
 if (isset($_POST['login'])) {
 
-
+    
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $hashPass = md5($password);

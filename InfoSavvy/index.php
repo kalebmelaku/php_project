@@ -1,3 +1,7 @@
+<?php
+require '../backend/db.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,14 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./img/favicon (2).ico" type="image/x-icon">
     <!-- external dependencies -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- custom styles -->
     <link rel="stylesheet" href="./style/main.css">
     <title>InfoSavvy</title>
@@ -25,8 +26,7 @@
         <nav class="navbar navbar-expand-lg" id="navbar">
             <div class="container-sm">
                 <a href="#" class="navbar-brand">
-                    <img src="./img/logo.png" alt="logo" width="150" height="40"
-                        class="d-inline-block align-text-top" />
+                    <img src="./img/logo.png" alt="logo" width="150" height="40" class="d-inline-block align-text-top" />
                 </a>
 
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -52,8 +52,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <button type="button" class="nav-link btn login" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
+                                <button type="button" class="nav-link btn login" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     Login
                                     </but>
                             </li>
@@ -73,9 +72,7 @@
                     <a href="#" class="align-self-start my-4 btn">Start Sharing</a>
                 </div>
 
-                <lottie-player src="https://assets4.lottiefiles.com/private_files/lf30_5u6A5U.json"
-                    background="transparent" speed="1" style="width: 600px; height: 600px;" loop
-                    autoplay></lottie-player>
+                <lottie-player src="https://assets4.lottiefiles.com/private_files/lf30_5u6A5U.json" background="transparent" speed="1" style="width: 600px; height: 600px;" loop autoplay></lottie-player>
 
             </div>
         </div>
@@ -88,106 +85,37 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="post col-sm-6 col-md-4 col-lg-3">
-                        <div class="card" style="width: 18rem;">
-                            <a href="#">
-                                <div class="img-container">
-                                    <img src="./img/bg.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk
-                                        of the card's content.</p>
-                                    <div class="info d-flex justify-content-between">
-                                        <p>by Kaleb M</p>
-                                        <p>May 12</p>
+                    <?php
+                    $sql = "SELECT * FROM `blog` ORDER BY `date` DESC LIMIT 4";
+                    $rs = mysqli_query($conn, $sql);
+                    while ($row = mysqli_fetch_assoc($rs)) {
+                        $title = $row['title'];
+                        $sub_title = $row['sub_title'];
+                        $img = $row['img'];
+                        $user = $row['user'];
+                        $date = $row['date'];
+                    ?>
+
+                        <div class="post col-sm-6 col-md-4 col-lg-3">
+                            <div class="card" style="width: 18rem;">
+                                <a href="#">
+                                    <div class="img-container">
+                                        <img src="./img/<?php echo $img; ?>" class="card-img-top" alt="Blog image">
                                     </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="post col-sm-6 col-md-4 col-lg-3">
-                        <div class="card">
-                            <a href="#">
-                                <div class="img-container">
-                                    <img src="./img/bg.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk
-                                        of the card's content.</p>
-                                    <div class="info d-flex justify-content-between">
-                                        <p>by Kaleb M</p>
-                                        <p>May 12</p>
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?php echo $title; ?></h5>
+                                        <p class="card-text"><?php echo $sub_title; ?></p>
+                                        <div class="info d-flex justify-content-between">
+                                            <p>by <?php echo $user; ?></p>
+                                            <p><?php echo $date; ?></p>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="post col-sm-6 col-md-4 col-lg-3">
-                        <div class="card">
-                            <a href="#">
-                                <div class="img-container">
-                                    <img src="./img/bg.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk
-                                        of the card's content.</p>
-                                    <div class="info d-flex justify-content-between">
-                                        <p>by Kaleb M</p>
-                                        <p>May 12</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="post col-sm-6 col-md-4 col-lg-3">
-                        <div class="card">
-                            <a href="#">
-                                <div class="img-container">
-                                    <img src="./img/bg.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk
-                                        of the card's content.</p>
-                                    <div class="info d-flex justify-content-between">
-                                        <p>by Kaleb M</p>
-                                        <p>May 12</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="post col-sm-6 col-md-4 col-lg-3">
-                        <div class="card">
-                            <a href="#">
-                                <div class="img-container">
-                                    <img src="./img/bg.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk
-                                        of the card's content.</p>
-                                    <div class="info d-flex justify-content-between">
-                                        <p>by Kaleb M</p>
-                                        <p>May 12</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -199,134 +127,66 @@
             </div>
             <ul class="d-flex px-0">
                 <li class="badge p-3 mx-2">
-                    <a href="#">
+                    <a href="./index.php?name=tech">
                         <p class="fs-6 m-0">Tech</p>
                     </a>
                 </li>
                 <li class="badge p-3 mx-2">
-                    <a href="#">
+                    <a href="./index.php?name=sport">
                         <p class="fs-6 m-0">Sport</p>
                     </a>
                 </li>
                 <li class="badge p-3 mx-2">
-                    <a href="#">
+                    <a href="./index.php?name=science">
                         <p class="fs-6 m-0">Science</p>
                     </a>
                 </li>
                 <li class="badge p-3 mx-2">
-                    <a href="#">
+                    <a href="./index.php?name=entertainment">
                         <p class="fs-6 m-0">Entertainment</p>
                     </a>
                 </li>
             </ul>
             <div class="container">
-                <div class="row">
-                    <div class="post col-sm-6 col-md-4 col-lg-3">
+            <div class="row">
+                    <?php
+                        $type = $_GET['name'];
+                        $sql = "SELECT * FROM `blog` WHERE `category` = '$type' ORDER BY `date` DESC LIMIT 10";
+                        $rs = mysqli_query($conn, $sql);
+                        while ($row = mysqli_fetch_assoc($rs)) {
+                            $title = $row['title'];
+                            $sub_title = $row['sub_title'];
+                            $img = $row['img'];
+                            $user = $row['user'];
+                            $date = $row['date'];
+                        ?>
+                        <div class="post col-sm-6 col-md-4 col-lg-3">
                         <div class="card" style="width: 18rem;">
                             <a href="#">
                                 <div class="img-container">
-                                    <img src="./img/bg.jpg" class="card-img-top" alt="...">
+                                    <img src="./img/<?php echo $img; ?>" class="card-img-top" alt="Blog image">
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk
-                                        of the card's content.</p>
+                                    <h5 class="card-title"><?php echo $title; ?></h5>
+                                    <p class="card-text"><?php echo $sub_title; ?></p>
                                     <div class="info d-flex justify-content-between">
-                                        <p>by Kaleb M</p>
-                                        <p>May 12</p>
+                                        <p>by <?php echo $user; ?></p>
+                                        <p><?php echo $date; ?></p>
                                     </div>
                                 </div>
                             </a>
                         </div>
                     </div>
-                    <div class="post col-sm-6 col-md-4 col-lg-3">
-                        <div class="card">
-                            <a href="#">
-                                <div class="img-container">
-                                    <img src="./img/bg.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk
-                                        of the card's content.</p>
-                                    <div class="info d-flex justify-content-between">
-                                        <p>by Kaleb M</p>
-                                        <p>May 12</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="post col-sm-6 col-md-4 col-lg-3">
-                        <div class="card">
-                            <a href="#">
-                                <div class="img-container">
-                                    <img src="./img/bg.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk
-                                        of the card's content.</p>
-                                    <div class="info d-flex justify-content-between">
-                                        <p>by Kaleb M</p>
-                                        <p>May 12</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="post col-sm-6 col-md-4 col-lg-3">
-                        <div class="card">
-                            <a href="#">
-                                <div class="img-container">
-                                    <img src="./img/bg.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk
-                                        of the card's content.</p>
-                                    <div class="info d-flex justify-content-between">
-                                        <p>by Kaleb M</p>
-                                        <p>May 12</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="post col-sm-6 col-md-4 col-lg-3">
-                        <div class="card">
-                            <a href="#">
-                                <div class="img-container">
-                                    <img src="./img/bg.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk
-                                        of the card's content.</p>
-                                    <div class="info d-flex justify-content-between">
-                                        <p>by Kaleb M</p>
-                                        <p>May 12</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                            
+                        <?php
+                        }
+                        ?>
                 </div>
             </div>
         </div>
     </section>
 
-<!-- modal -->
+    <!-- modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-center">
             <div class="modal-content">
@@ -336,15 +196,14 @@
                 </div>
                 <div class="modal-body">
                     <form class="login-form" action="../backend/login.php" method="POST">
-                    <?php
-                            @$msg = $_REQUEST['err'];
+                        <?php
+                        @$msg = $_REQUEST['err'];
                         ?>
                         <p style="color: red">
-                    <?php echo $msg; ?></p>
+                            <?php echo $msg; ?></p>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input name="email" type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
+                            <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3">
@@ -356,10 +215,10 @@
                     </form>
                     <form method="POST" action="../backend/signup.php" class="signup-form d-none">
                         <?php
-                            @$msg = $_REQUEST['error'];
+                        @$msg = $_REQUEST['error'];
                         ?>
                         <p style="color: red">
-                    <?php echo $msg; ?></p>
+                            <?php echo $msg; ?></p>
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="firstname">First Name</label>
@@ -387,8 +246,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="confirm_password">Confirm Password</label>
-                                <input type="password" class="form-control" id="confirm_password"
-                                    name="confirm_password" required>
+                                <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
                             </div>
                         </div>
                         <input type="submit" name="signup" class="my-2 btn btn-primary" value="Sing up" />
