@@ -1,5 +1,6 @@
 <?php
 require './db.php';
+session_start();
 if (isset($_POST['login'])) {
 
     
@@ -14,6 +15,7 @@ if (isset($_POST['login'])) {
         $pass = $row['password'];
         $status = $row['status'];
         $trial = $row['trial'];
+        $id = $row['id'];
         if ($status == 0) {
             header("Location: ../InfoSavvy/index.php?err=Account Blocked");
         } else {
@@ -23,7 +25,7 @@ if (isset($_POST['login'])) {
 
             if (mysqli_num_rows($rs) > 0) {
                 mysqli_query($conn, "UPDATE `users` SET `trial`= 0 WHERE `email` = '$email'");
-
+                $_SESSION['users'] = $id;
                 header("Location: ../AdminDash/");
             } else {
                 $trial++;

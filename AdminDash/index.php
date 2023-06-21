@@ -1,3 +1,8 @@
+<?php
+session_start();
+  include '../backend/auth.php';
+ 
+?>
 <!DOCTYPE html>
 <html>
 
@@ -47,9 +52,9 @@
       <!-- Sidebar Header-->
 
       <ul class="list-unstyled">
-        <li class="sidebar-item active"><a class="sidebar-link" href="index.html">
+        <li class="sidebar-item active"><a class="sidebar-link" href="index.php">
             <i class="fas fa-home svg-icon fa-2x"></i><span>Home </span></a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="./posts.html">
+        <li class="sidebar-item"><a class="sidebar-link" href="./posts.php">
             <i class="fa-solid fa-signs-post svg-icon fa-2x"></i><span>My Posts </span></a></li>
         <li class="sidebar-item"><a class="sidebar-link" href="#">
             <i class="fa-solid fa-user-tie svg-icon fa-2x"></i> <span>Profile </span></a></li>
@@ -75,19 +80,21 @@
               <div class="col-md-3 col-sm-6 mx-auto">
                 <div class="card-body">
                   <div class="card-title">
-                    <h3 class="text-center">Add Post</h3>
-                    <form class="">
+                    <h3 class="text-center">
+      
+                    Add Post</h3>
+                    <form action="../backend/addPost.php" method="GET">
                       <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="title" required>
+                        <input type="text" name="title" class="form-control" id="title" required>
                       </div>
                       <div class="mb-3">
                         <label for="subtitle" class="form-label">Sub Title</label>
-                        <input type="text" class="form-control" id="subtitle">
+                        <input type="text" name="sub_title" class="form-control" id="subtitle">
                       </div>
                       <div class="mb-3">
                         <label for="category" class="form-label">Category</label>
-                        <select id="category" class="form-control">
+                        <select id="category" name="category" class="form-control">
                           <option value="text">Tech</option>
                           <option value="entertainment">Entertainment</option>
                           <option value="science">Science</option>
@@ -95,6 +102,10 @@
                         </select>
 
                       </div>
+                      <?php 
+                        $id = $_SESSION['users'];
+                      ?>
+                      <input type="hidden" name="user" value="<?php echo $id; ?>">
                       <div class="mb-3">
                         <label for="blogpost" class="form-label">Blog Content</label>
                         <!-- <textarea class="form-control" id="subtitle"> </textarea> -->
@@ -104,7 +115,7 @@
                         <label for="picture" class="form-label">Blog Picture</label>
                         <input type="file" class="form-control" id="picture" required accept="image/*">
                       </div>
-                      <button type="submit" class="my-4 btn btn-primary">POST</button>
+                      <input type="submit" name="addPost" class="my-4 btn btn-primary" value="POST" />
                     </form>
                   </div>
                 </div>
